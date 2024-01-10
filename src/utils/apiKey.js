@@ -2,7 +2,7 @@ const { randomBytes, scryptSync, timingSafeEqual } = require('crypto');
 
 function generateKey(size = 32, format = 'base64') {
     const buffer = randomBytes(size);
-    return "owenapi_" + buffer.toString(format); // Start API key with owenapi_ to make it easier to identify
+    return "apipro_" + buffer.toString(format); // Start API key with apipro_ to make it easier to identify
 }
 
 function generateSecretHash(key) {
@@ -14,13 +14,10 @@ function generateSecretHash(key) {
 function compareKeys(storedKey, providedKey) {
     console.log(providedKey);
     const [hash, salt] = storedKey
-        .slice('owenapi_'.length) //Remove owen_ from the start of the hash
+        .slice('apipro_'.length) //Remove apipro_ from the start of the hash
         .split('.');
     const buffer = scryptSync(providedKey, salt, 64);
-    console.log(buffer);
-    const buffer2 = Buffer.from(hash)
-    console.log(scryptSync(storedKey, salt, 64));
-    return timingSafeEqual(scryptSync(Buffer.from(hash, 'hex'), salt, 64), buffer);
+    return timingSafeEqual(Buffer.from(storedKey, 'hex'), buffer);
 }
 
 module.exports = {generateKey, generateSecretHash, compareKeys};
