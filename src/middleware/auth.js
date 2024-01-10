@@ -3,7 +3,7 @@ const {getHashes, getRoutes} = require('../utils/db');
 const {compareKeys} = require('../utils/apiKey');
 
 async function author(){
-    return await getHashes().catch(console.log('DB error'));
+    return await getHashes();
     
 }
 
@@ -19,6 +19,7 @@ const auth = async (req, res, next) => {
             return hashes;
         }})
 
+    
     const validHash = hashes.some(hash => compareKeys(hash, apiKey));
 
     if (!validHash) {
