@@ -1,7 +1,6 @@
 require('dotenv').config();
 const {MongoClient} = require('mongodb');
 const sqlite3 = require('sqlite3');
-//const {generateSecretHash} = require('../utils/apiKey');
 
 if (!process.env.USERNAME || !process.env.PASSWORD || !process.env.CLUSTER){
 
