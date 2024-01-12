@@ -12,7 +12,6 @@ function generateSecretHash(key) {
 }
 
 function compareKeys(storedKey, providedKey) {
-    console.log(providedKey);
     const [hash, salt] = storedKey
         .slice('apipro_'.length) //Remove apipro_ from the start of the hash
         .split('.');
