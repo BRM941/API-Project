@@ -3,7 +3,7 @@ const router = express.Router();
 const {generateKey, generateSecretHash} = require('../utils/apiKey');
 const {registerHash} = require('../utils/db');
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
     const apiKey = generateKey();
     const secretHash = generateSecretHash(apiKey);
     registerHash(secretHash);

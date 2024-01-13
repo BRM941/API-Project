@@ -1,0 +1,29 @@
+
+/* Body */
+body{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+ 
+} 
+
+/* Fraction */
+.fraction {
+  font-size: 2rem;
+  display: inline-block;
+  vertical-align: middle; 
+  margin: 0 0.2em 0.4ex;
+  text-align: center;
+  & > span{
+    display: block;
+    padding-top: 0.15em;
+  }
+  & span{
+    &.fdn{
+      border-top: thin solid black;
+    }
+    &.bar{
+      display: none;
+    }
+  }
+}
