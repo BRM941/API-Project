@@ -1,15 +1,22 @@
 
+.column{
+  margin-left: 70px;
+  
+
+  
+}
+
+
 /* Body */
 body{
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
- 
+ background-color: rgb(45, 43, 43);
+ color: rgb(174, 171, 171);
+ padding: 1% 8%
 } 
 
 /* Fraction */
 .fraction {
-  font-size: 2rem;
+  font-size: 1rem;
   display: inline-block;
   vertical-align: middle; 
   margin: 0 0.2em 0.4ex;
@@ -20,10 +27,18 @@ body{
   }
   & span{
     &.fdn{
-      border-top: thin solid black;
+      border-top: thin solid rgb(174, 171, 171);
     }
     &.bar{
       display: none;
     }
   }
+}
+
+a {
+  color: white
+}
+
+a:hover{
+  color:grey
 }

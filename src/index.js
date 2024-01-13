@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(rateLimitMiddleware);
 
 app.use('/register', registerRoutes); // Register route is not protected by auth middleware
-//app.use(auth);
+
 
 app.use('/reynolds', auth)
 app.use('/reynolds', reynoldnumb);
