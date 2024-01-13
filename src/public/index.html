@@ -1,38 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Distance API</title>
+    <title>Reynold's Number API</title>
+    <link rel="stylesheet" href="http://localhost:3000/public/styles.css">
 </head>
 <body>
-    <h1>Thank You for Using the Planetary Distance Calculator!</h1>
+    <h1>Thank You for Using the Reynold's Number Calculator!</h1>
     
     <p>
-        Please provide an origin and destination query parameter to get started.
-        You can use any of these planets:
+        Please provide the following variables in your HTTP request header:
     </p>
     
     <ul>
-        <li>Mercury</li>
-        <li>Venus</li>
-        <li>Earth</li>
-        <li>Mars</li>
-        <li>Jupiter</li>
-        <li>Saturn</li>
-        <li>Uranus</li>
-        <li>Neptune</li>
+        <li>den: The density of the fluid in <sup>kg</sup>&frasl;<sub>m<sup>3</sup></sub></li>
+        <li>vel: The velocity of the fluid in m/s </li>
+        <li>dia: The diameter of the pipe the fluid is flowing through in m</li>
+        <li>visc: The dynamic viscosity of the fluid in <sup>N &#8729 s</sup>&frasl;<sub>m<sup>2</sup></sub></li>
     </ul>
     
     <p>
-        Example: <code>/distance?origin=Earth&destination=Mars</code>
+        <div>
+            Example: <code><span style="color:green">GET</span> /reynolds </code>
+        </div>
+        <div class="column">
+            <code>x-api-key: apipro_rvlFReoA9cI5ihGTVDegA59E/RL0x18dTD/ILis9gYs=</code>
+        </div>
+        <div class="column">
+            <code>den: 1.25</code>
+        </div>
+        <div class="column">
+            <code>vel: 35</code>
+        </div>
+        <div class="column">
+            <code>dia: 0.1</code>
+        </div>
+        <div class="column">
+            <code>visc: 1.83e-5</code>
+        </div>
     </p>
     
     <p>
-        The distance is the average distance in miles between the two planets, 
-        since the distances vary depending on where the planets are in their orbits.
+        Reynold's number is a dimensionless number that represents the ratio of the 
+        inertial force and the viscous force of a fluid.  A fluid may be either a liquid or a gas. 
+        This number applies to any such fluid and is used to distinguish a fluid's laminar flow and 
+        its turbulent flow. Laminar flow is the smooth, steady, and predictable flow of a fluid---small disturbances
+         quickly dampen. Turbulent flow is the fluctuating and chaotic flow of a fluid---predictions are difficult 
+         and disturbances do not quickly dampen.
     </p>
+
+    <p>
+        The formula for Reynold's number is:
+        <div class="eq-c">
+            Re =
+             <div class="fraction">
+             <span class="fup">&rho;VD</span>
+             <span class="bar">/</span>
+             <span class="fdn">&mu;</span>
+             </div>
+             
+           </div>
+    </p>
+
+    <p>Where: </p>
+    <ul>
+        <li>&rho; is the density of the fluid</li>
+        <li>V is the velocity of the fluid </li>
+        <li>D is the diameter of the pipe the fluid is flowing through</li>
+        <li>&mu; is the dynamic viscosity of the fluid</li>
+    </ul>
     
     <p>
-        Distances courtesy of <a href="https://theplanets.org/distances-between-planets/" target="_blank">theplanets.org</a>.
+        To use the API please <a href="http://localhost:3000/register" >register</a> for an api key and add it as a x-api-key HTTP header.
     </p>
 </body>
 </html>
